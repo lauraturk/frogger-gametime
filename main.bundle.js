@@ -44,19 +44,11 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"start\""); }());
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var canvas = document.getElementById('frogger');
 	var context = canvas.getContext('2d');
-	var Frog = __webpack_require__(2);
-	var Lane = __webpack_require__(3);
-	var Lilypad = __webpack_require__(6);
+	var Frog = __webpack_require__(1);
+	var Lane = __webpack_require__(2);
+	var Lilypad = __webpack_require__(5);
 
 	var froggy = new Frog();
 	var lane = new Lane(350);
@@ -75,7 +67,21 @@
 	lane3.createCars(2, 150);
 	lane4.createBus(3, 200);
 
-	requestAnimationFrame(function gameLoop() {
+	var originalTime = 0;
+	var duration = 0;
+	var framesPerSecond = 2;
+
+	requestAnimationFrame(function gameLoop(currentTime) {
+
+	  if (!originalTime) {
+	    originalTime = currentTime;
+	  }
+	  duration = currentTime - originalTime;
+
+	  if (duration > 2000 / framesPerSecond) {
+	    originalTime = currentTime;
+	  }
+
 	  context.clearRect(0, 0, canvas.width, canvas.height);
 
 	  froggy.draw(context);
@@ -89,11 +95,16 @@
 	  lilypad4.draw(context);
 	  lilypad5.draw(context);
 
+	  console.log(froggy.deathCounter);
+
 	  var drawMoveRight = function (lane) {
 	    lane.obstacles.forEach(function (vehicle) {
 	      vehicle.draw(context).moveRight();
 	      if (froggy.collide(vehicle)) {
-	        console.log('POW!');
+	        timeoutId = this.setTimeout(froggy.death);
+	        froggy.death(timeoutId);
+	        // console.log(timeoutId)
+
 	      }
 	    });
 	  };
@@ -102,7 +113,10 @@
 	    lane.obstacles.forEach(function (vehicle) {
 	      vehicle.draw(context).moveLeft();
 	      if (froggy.collide(vehicle)) {
-	        console.log('POW!');
+	        timeoutId = this.setTimeout(froggy.death);
+	        froggy.death(timeoutId);
+	        // console.log(timeoutId)
+
 	      }
 	    });
 	  };
@@ -118,42 +132,15 @@
 	    }
 	  };
 
-	  winCollide(lilypad);
-	  winCollide(lilypad2);
-	  winCollide(lilypad3);
-	  winCollide(lilypad4);
-	  winCollide(lilypad5);
+	  win(lilypad);
+	  win(lilypad2);
+	  win(lilypad3);
+	  win(lilypad4);
+	  win(lilypad5);
 
-	  // lane.obstacles.forEach(function(car) {
-	  //     car.draw(context).moveRight();
-	  //     if (froggy.collide(car)) {
-	  //       console.log('POW!');
-	  //     }
-	  //   });
-
-	  //
-	  // lane2.obstacles.forEach(function(bus) {
-	  //   bus.draw(context).moveLeft();
-	  //   if (froggy.collide(bus)) {
-	  //     console.log('POW!');
-	  //   }
-	  // });
-	  //
-	  // lane3.obstacles.forEach(function(car) {
-	  //   car.draw(context).moveLeft();
-	  //   if (froggy.collide(car)) {
-	  //     console.log('POW!');
-	  //   }
-	  // });
-	  //
-	  // lane4.obstacles.forEach(function(bus) {
-	  //   bus.draw(context).moveRight();
-	  //   if (froggy.collide(bus)) {
-	  //     console.log('POW!');
-	  //   }
-	  // });
-
+	  // if (isGameRunning) {
 	  requestAnimationFrame(gameLoop);
+	  // }  
 	});
 
 	document.addEventListener('keydown', function (e) {
@@ -177,7 +164,7 @@
 	});
 
 /***/ },
-/* 2 */
+/* 1 */
 /***/ function(module, exports) {
 
 	function Frog() {
@@ -186,6 +173,7 @@
 	  this.width = 25;
 	  this.height = 25;
 	  this.color = 'rgba(0, 255, 0, 1)';
+	  this.lives = 3;
 	}
 
 	Frog.prototype.draw = function (ctx) {
@@ -233,26 +221,27 @@
 	  return yCollision && xCollision;
 	};
 
-	// Frog.prototype.death = function() {
-	//   this.color =
-	//   this.x = 250;
-	//   this.y = 475;
-	// }
+	Frog.prototype.death = function (timeoutId) {
+	  this.color = 'rgba(250, 0, 0, 1)';
+	  this.x = 250;
+	  this.y = 475;
+	  this.deathCounter = timeoutId;
+	};
 
 	module.exports = Frog;
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Car = __webpack_require__(4);
-	var Bus = __webpack_require__(5);
+	var Car = __webpack_require__(3);
+	var Bus = __webpack_require__(4);
 
 	function Lane(y, direction) {
 		this.x = 0;
 		this.y = y;
 		this.width = 500;
-		this.height = 100;
+		this.height = 50;
 		this.obstacles = [];
 		this.direction = direction;
 		this.color = 'rbga(0,0,0,0)';
@@ -284,12 +273,12 @@
 	module.exports = Lane;
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports) {
 
 	function Car(x, lane) {
 		this.x = x;
-		this.y = lane.y + 25;
+		this.y = lane.y;
 		this.width = 100;
 		this.height = 50;
 		this.speed = 1;
@@ -320,12 +309,12 @@
 	module.exports = Car;
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports) {
 
 	function Bus(x, lane) {
 		this.x = x;
-		this.y = lane.y + 25;
+		this.y = lane.y;
 		this.width = 150;
 		this.height = 50;
 		this.speed = 0.5;
@@ -356,7 +345,7 @@
 	module.exports = Bus;
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports) {
 
 	function Lilypad(x) {
