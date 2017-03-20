@@ -94,7 +94,5 @@ describe ('Bus', function(){
 		assert.equal(bus.x, 500);
 	});
 
-
-
 	});
 });
