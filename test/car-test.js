@@ -40,8 +40,8 @@ describe ('Car', function(){
 		assert.equal(car2.height, 50);
 		assert.equal(car.width, 100);
 		assert.equal(car2.width, 100);
-		assert.equal(car.speed, 1);
-		assert.equal(car2.speed, 1);
+		assert.equal(car.speed, 5);
+		assert.equal(car2.speed, 5);
 		assert.equal(car.color, 'rgba(0,0,255,1)');
 		assert.equal(car2.color, 'rgba(0,0,255,1)');
 	});
@@ -52,7 +52,6 @@ describe ('Car', function(){
 		assert.isFunction(car.draw);
 	});
 
-	// it('should ')   not sure how to test for draw
 
 	it('should have a function called "moveRight"', function () {
 		var lane = new Lane(250);
@@ -64,7 +63,7 @@ describe ('Car', function(){
 		var lane = new Lane(250);
 		var car = new Car (10, lane);
 		car.moveRight();
-		assert.equal(car.x, 11);
+		assert.equal(car.x, 15);
 	});
 
 	it('should reset to -150 when it hits the canvas end moving right', function () {
@@ -84,7 +83,7 @@ describe ('Car', function(){
 		var lane = new Lane(250);
 		var car = new Car (10, lane);
 		car.moveLeft();
-		assert.equal(car.x, 9);
+		assert.equal(car.x, 5);
 	});
 
 	it('should reset to 500 when it hits the canvas end moving left', function () {

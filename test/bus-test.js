@@ -40,8 +40,8 @@ describe ('Bus', function(){
 		assert.equal(bus2.height, 50);
 		assert.equal(bus.width, 150);
 		assert.equal(bus2.width, 150);
-		assert.equal(bus.speed, 0.5);
-		assert.equal(bus2.speed, 0.5);
+		assert.equal(bus.speed, 3);
+		assert.equal(bus2.speed, 3);
 		assert.equal(bus.color, 'rgba(255,255,0,1)');
 		assert.equal(bus2.color, 'rgba(255,255,0,1)');
 	});
@@ -64,7 +64,7 @@ describe ('Bus', function(){
 		var lane = new Lane(250);
 		var bus = new Bus (10, lane);
 		bus.moveRight();
-		assert.equal(bus.x, 10.5);
+		assert.equal(bus.x, 13);
 	});
 
 	it('should reset to -150 when it hits the canvas end moving right', function () {
@@ -84,7 +84,7 @@ describe ('Bus', function(){
 		var lane = new Lane(250);
 		var bus = new Bus (10, lane);
 		bus.moveLeft();
-		assert.equal(bus.x, 9.5);
+		assert.equal(bus.x, 7);
 	});
 
 	it('should reset to 500 when it hits the canvas end moving left', function () {
