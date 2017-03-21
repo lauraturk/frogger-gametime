@@ -1,3 +1,6 @@
+var chai = require('chai');
+var assert = chai.assert;
+
 var Car = require('../lib/car.js');
 var Bus = require('../lib/bus.js');
 var Lane = require('../lib/lane.js');
