@@ -5,3 +5,15 @@ canvas {
 	border: 1px dashed green;
 	background-image: url('../images/highway.jpg');
 }
+
+.home-screen {
+	position: absolute;
+	top: 0;
+	width: 500px;
+	height: 500px;
+}
+
+.home-screen img {
+	width: 20px;
+	height: 20px;
+}
