@@ -1,6 +1,6 @@
-var Car = require('./Car.js');
-var Bus = require('./Bus.js');
-var Lane = require('../lib/Lane.js');
+var Car = require('../lib/car.js');
+var Bus = require('../lib/bus.js');
+var Lane = require('../lib/lane.js');
 
 describe ('Lane', function(){
 	context('with default attributes', function (){
