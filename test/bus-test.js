@@ -53,25 +53,6 @@ describe ('Bus', function() {
 		assert.isFunction(bus.draw);
 	});
 
-	// it('should ')   not sure how to test for draw
-
-	it('should have a function called "moveRight"', function () {
-
-		assert.isFunction(bus.moveRight);
-	});
-
-	it('should move right equal to its speed', function () {
-		bus.moveRight();
-		assert.equal(bus.x, 13);
-	});
-
-	it('should reset to -150 when it hits the canvas end moving right', function () {
-		var lane = new Lane(250);
-		var bus = new Bus (500, lane);
-		bus.moveRight();
-		assert.equal(bus.x, -150);
-	});
-
 	it('should have a function called "moveLeft"', function () {
 		assert.isFunction(bus.moveLeft);
 	});

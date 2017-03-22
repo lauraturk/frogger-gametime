@@ -11,11 +11,6 @@ describe ('Car', function(){
 	var lane = new Lane(250);
 	var car = new Car(10, lane);
 
-
-	context('with default attributes', function (){
-
-
-
 	it('should be a function', function (){
 		assert.isFunction(Car);
 	});
@@ -44,11 +39,6 @@ describe ('Car', function(){
 		assert.equal(car.speed, 5);
 	});
 
-	// it('should have an image', function (ctx) {
-	// 	car.draw(ctx)
-	// 	assert.equal(car.image.src, '../images/car.svg')
-	// });
-
 	it('should have a function called "draw()" ', function () {
 		assert.isFunction(car.draw);
 	});
@@ -67,23 +57,5 @@ describe ('Car', function(){
 		var car = new Car (600, lane);
 		car.moveRight();
 		assert.equal(car.x, -100);
-	});
-
-	it('should have a function called "moveLeft"', function () {
-		assert.isFunction(car.moveLeft);
-	});
-
-	it('should move left equal to its speed', function () {
-		car = new Car (20, lane);
-		car.moveLeft();
-		assert.isTrue(car.x < 20);
-	});
-
-	it('should reset to 500 when it hits the canvas end moving left', function () {
-		var car = new Car (-100, lane);
-		car.moveLeft();
-		assert.equal(car.x, 600);
-	});
-
 	});
 });
