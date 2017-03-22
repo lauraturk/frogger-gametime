@@ -1,13 +1,11 @@
 const chai = require('chai');
 const assert = chai.assert;
-const Car = require('../lib/car.js');
-const Bus = require('../lib/bus.js');
 const Lane = require('../lib/lane.js');
 
 describe ('Lane', () => {
 
 	const lane = new Lane(450);
-	
+
 	it('should be a function', () => {
 		assert.isFunction(Lane);
 	});
@@ -36,7 +34,7 @@ describe ('Lane', () => {
 	});
 
 	it('should create one or two busses', () => {
-		var busLane = new Lane();
+		let busLane = new Lane();
 
 		busLane.createBus();
 		assert.isTrue(busLane.obstacles.length < 2);
