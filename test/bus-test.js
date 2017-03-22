@@ -5,8 +5,13 @@ var assert = chai.assert;
 
 var Bus = require('../lib/bus.js');
 var Lane = require('../lib/lane.js');
+var World = require('../lib/world.js');
+var lane = new Lane(250);
+var bus = new Bus(10, lane);
+var world = new World();
 
-describe ('Bus', function(){
+describe ('Bus', function() {
+
 	context('with default attributes', function (){
 
 
@@ -21,48 +26,41 @@ describe ('Bus', function(){
 	});
 
 	it('should take a value for x', function () {
-		var lane = new Lane(250);
-		var bus = new Bus(10, lane);
+
 		assert.equal(bus.x, 10);
 	});
 
 	it('should inherit its y from the lane', function () {
-		var lane = new Lane(250);
-		var bus = new Bus(10, lane);
+
 		assert.equal(bus.y, 250);
 	});
 
-	it('every bus should have a set height, width, speed and color', function (){
-		var lane = new Lane(250);
-		var bus = new Bus (10, lane);
-		var bus2 = new Bus (5, lane);
+	it('every bus should have a set height', function (){
+
 		assert.equal(bus.height, 50);
-		assert.equal(bus2.height, 50);
-		assert.equal(bus.width, 150);
-		assert.equal(bus2.width, 150);
-		assert.equal(bus.speed, 3);
-		assert.equal(bus2.speed, 3);
-		assert.equal(bus.color, 'rgba(255,255,0,1)');
-		assert.equal(bus2.color, 'rgba(255,255,0,1)');
 	});
 
+      it('should have a width', function () {
+				assert.equal(bus.width, 150);
+      });
+
+			it('should have a speed', function () {
+				assert.equal(bus.speed, 3);
+			});
+
 	it('should have a function called "draw()" ', function () {
-		var lane = new Lane(250);
-		var bus = new Bus (10, lane);
+
 		assert.isFunction(bus.draw);
 	});
 
 	// it('should ')   not sure how to test for draw
 
 	it('should have a function called "moveRight"', function () {
-		var lane = new Lane(250);
-		var bus = new Bus (10, lane);
+
 		assert.isFunction(bus.moveRight);
 	});
 
 	it('should move right equal to its speed', function () {
-		var lane = new Lane(250);
-		var bus = new Bus (10, lane);
 		bus.moveRight();
 		assert.equal(bus.x, 13);
 	});
@@ -75,16 +73,15 @@ describe ('Bus', function(){
 	});
 
 	it('should have a function called "moveLeft"', function () {
-		var lane = new Lane(250);
-		var bus = new Bus (10, lane);
 		assert.isFunction(bus.moveLeft);
 	});
 
-	it('should move left equal to its speed', function () {
+	it('should move left', function () {
 		var lane = new Lane(250);
-		var bus = new Bus (10, lane);
+		var bus = new Bus (200, lane);
 		bus.moveLeft();
-		assert.equal(bus.x, 7);
+		bus.moveLeft();
+		assert.isTrue(bus.x < 200);
 	});
 
 	it('should reset to 500 when it hits the canvas end moving left', function () {

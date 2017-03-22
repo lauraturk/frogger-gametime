@@ -6,17 +6,19 @@ var Bus = require('../lib/bus.js');
 var Lane = require('../lib/lane.js');
 
 describe ('Lane', function(){
-	context('with default attributes', function (){
+
 	const lane = new Lane(450);
 	const bus = new Bus(250, lane);
 	const car = new Car(350, lane);
+
+	context('with default attributes', function (){
 
 	it('should be a function', function (){
 		assert.isFunction(Lane);
 	});
 
 	it('should instatiate a new lane', function (){
-		assert.isObject(Lane);
+		assert.isObject(lane);
 	});
 
 	it('should take a value for y', function () {
@@ -27,34 +29,22 @@ describe ('Lane', function(){
 		assert.isFunction(lane.draw);
 	});
 
-
 	it('should have a function called "createCars()"', function () {
 		assert.isFunction(lane.createCars);
 	});
 
 	it('should create one or two cars ', function () {
-		lane.createCars();
-		assert.equal(lane.obstacles < 3);
+		var carsLane = new Lane ();
+		carsLane.createCars();
+		assert.isTrue(carsLane.obstacles.length < 2);
 	});
 
-	it('should reset to -150 when it hits the canvas end moving right', function () {
-		car.moveRight();
-		assert.equal(car.x, -100);
+	it('should create one or two busses', function () {
+		var busLane = new Lane ();
+		busLane.createBus();
+		assert.isTrue(busLane.obstacles.length < 2);
 	});
 
-	it('should have a function called "moveLeft"', function () {
-		assert.isFunction(car.moveLeft);
-	});
-
-	it('should move left equal to its speed', function () {
-		car.moveLeft();
-		assert.equal(car.x, 5);
-	});
-
-	it('should reset to 500 when it hits the canvas end moving left', function () {
-		car.moveLeft();
-		assert.equal(car.x, 600);
-	});
 
 	});
 });
