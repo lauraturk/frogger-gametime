@@ -102,25 +102,24 @@ describe ('Frog', function() {
       assert.isFunction(frog.collide)
     });
 
-    it('should detect a collision', function () {
-      var lane = new Lane();
-      var world = new World();
-      var bus = new Bus ();
-      var frog = new Frog();
-
-      world.createLanes();
-      world.createVehicles();
-      for (let i = 0; i < 10; i++) {
-        frog.moveUp();
-				frog.moveRight();
-      }
-
-			frog.moveRight();
-		// frog.collide(bus);
-
-      assert.isTrue(frog.collide(bus))
-
-    });
+    // it('should detect a collision', function () {
+    //   var world = new World();
+    //   var bus = new Bus ();
+		//
+    //   world.createLanes();
+    //   world.createVehicles();
+		//
+    //   for (let i = 0; i < 10; i++) {
+    //     frog.moveUp();
+		// 		frog.moveRight();
+    //   }
+		//
+		// 	frog.moveRight();
+		// // frog.collide(bus);
+		//
+    //   assert.isTrue(frog.death)
+		//
+    // });
 
     it('should have a function called "winCollide()" ', function () {
       assert.isFunction(frog.winCollide);
