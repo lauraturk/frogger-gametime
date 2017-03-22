@@ -38,7 +38,7 @@ describe ('Frog', function() {
 
     it('should instantiate at the bottom center of the canvas', function () {
 			let frog4 = new Frog ();
-      
+
       assert.equal(frog4.x, 250);
       assert.equal(frog4.y, 475);
     });
@@ -64,7 +64,6 @@ describe ('Frog', function() {
       assert.isTrue(frog.collide(bus));
 
     });
-
 
     it('should have a function called "death()" ', function () {
       assert.isFunction(frog.death);
