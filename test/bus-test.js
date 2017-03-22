@@ -1,8 +1,5 @@
-// require('locus')
 var chai = require('chai');
 var assert = chai.assert;
-
-
 var Bus = require('../lib/bus.js');
 var Lane = require('../lib/lane.js');
 var World = require('../lib/world.js');
