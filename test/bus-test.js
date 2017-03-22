@@ -1,8 +1,8 @@
 var chai = require('chai');
 var assert = chai.assert;
-var Bus = require('../lib/bus.js');
-var Lane = require('../lib/lane.js');
-var World = require('../lib/world.js');
+const Bus = require('../lib/bus');
+const Lane = require('../lib/lane');
+const World = require('../lib/world');
 var lane = new Lane(250);
 var bus = new Bus(10, lane);
 var world = new World();
