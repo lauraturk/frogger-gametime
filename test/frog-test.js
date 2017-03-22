@@ -65,24 +65,10 @@ describe ('Frog', function() {
 
     });
 
-    it('should have a function called "death()" ', function () {
-      assert.isFunction(frog.death);
-    });
-
-    it('should return to the starting place upon dying', function () {
-      frog.death();
+    it('should return to the starting place upon dying or winning', function () {
+      frog.backToStart();
       assert.equal(frog.x, 250);
       assert.equal(frog.y, 475);
     });
-
-    it('should return to its starting place upon winning', function () {
-      frog.win();
-      assert.equal(frog.x, 250);
-      assert.equal(frog.y, 475);
-    })
-
-
-
-
   });
 });
