@@ -3,8 +3,6 @@ const assert = chai.assert;
 const Frog = require('../lib/frog.js');
 const Bus = require('../lib/bus.js');
 const Lane = require('../lib/lane.js');
-const World = require('../lib/world.js');
-
 
 describe ('Frog', () => {
   const frog = new Frog ();
