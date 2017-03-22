@@ -1,6 +1,3 @@
-const chai = require('chai');
-const assert = chai.assert;
-
 require('./bus-test');
 require('./car-test');
 require('./frog-test');
