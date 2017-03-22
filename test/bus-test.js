@@ -2,7 +2,6 @@ const chai = require('chai');
 const assert = chai.assert;
 const Bus = require('../lib/bus');
 const Lane = require('../lib/lane');
-const World = require('../lib/world');
 let lane = new Lane(250);
 let bus = new Bus(10, lane);
 

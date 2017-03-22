@@ -23,7 +23,7 @@ describe ('Frog', () => {
 
 		it('should have a set width', () => {
 			assert.equal(frog.width, 25);
-		})
+		});
 
     it('should have a function called "draw()" ', () => {
       assert.isFunction(frog.draw);
