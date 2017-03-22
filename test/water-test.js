@@ -1,6 +1,6 @@
-var chai = require('chai');
-var assert = chai.assert;
-var Water = require('../lib/water.js');
+const chai = require('chai');
+const assert = chai.assert;
+const Water = require('../lib/water.js');
 
 describe('Water', () => {
   const water = new Water();

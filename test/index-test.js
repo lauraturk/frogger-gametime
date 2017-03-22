@@ -1,6 +1,3 @@
-var chai = require('chai');
-var assert = chai.assert;
-
 require('./bus-test');
 require('./car-test');
 require('./frog-test');
