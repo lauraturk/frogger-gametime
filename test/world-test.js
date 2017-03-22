@@ -1,6 +1,6 @@
-var chai = require('chai');
-var assert = chai.assert;
-var World = require('../lib/world.js');
+const chai = require('chai');
+const assert = chai.assert;
+const World = require('../lib/world.js');
 
 describe ('World', () => {
   const world = new World();

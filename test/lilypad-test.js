@@ -1,6 +1,6 @@
-var chai = require('chai');
-var assert = chai.assert;
-var Lilypad = require('../lib/lilypad.js');
+const chai = require('chai');
+const assert = chai.assert;
+const Lilypad = require('../lib/lilypad.js');
 
 describe('Lilypad', () => {
   const lilypad = new Lilypad();
