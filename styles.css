@@ -23,3 +23,14 @@ canvas {
 	width: 90px;
 	height: 50px;
 }
+
+.frog-lives {
+	display: flex;
+	justify-content: center;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 15px;
+}
+
+.lives {
+	margin-left: 10px;
+}
