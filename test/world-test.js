@@ -30,13 +30,13 @@ describe ('World', () => {
   });
 
   it('should instantiate 5 lilypads', () => {
-    world.createLilypads();
+    world.createEndLane();
     assert.equal(world.lilypads.length, 5);
   });
 
-  it('should insantiate 5 puddles of water', () => {
-    world.createPuddles();
-    assert.equal(world.puddles.length, 5);
+  it('should insantiate 5 puddles of water next to 5 lilypads', () => {
+    world.createEndLane();
+    assert.equal(world.puddles.length, 10);
   });
 
   it('should insantiate 7 lanes', () => {

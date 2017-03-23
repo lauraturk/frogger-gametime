@@ -22,21 +22,21 @@ describe ('Lane', () => {
 		assert.isFunction(lane.draw);
 	});
 
-	it('should have a function called "createCars()"', () => {
-		assert.isFunction(lane.createCars);
+	it('should have a function called "createObstacles()"', () => {
+		assert.isFunction(lane.createObstacles);
 	});
 
 	it('should create one or two cars ', () => {
 		let carsLane = new Lane();
 
-		carsLane.createCars();
+		carsLane.createObstacles('car', 0);
 		assert.isTrue(carsLane.obstacles.length < 2);
 	});
 
 	it('should create one or two busses', () => {
 		let busLane = new Lane();
 
-		busLane.createBus();
+		busLane.createObstacles('bus', 0);
 		assert.isTrue(busLane.obstacles.length < 2);
 	});
 });
