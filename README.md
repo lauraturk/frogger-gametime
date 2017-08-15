@@ -1,2 +1,31 @@
-## Frogger!
-* A classic game developed using HTML5 canvas, object-oriented JS, and unit testing.
+# Project Title
+
+Frogger!
+
+## Getting Started
+
+### Installing
+
+```
+git clone
+```
+```
+npm install
+```
+```
+npm start
+```
+
+## Running the tests
+
+```
+npm test
+```
+
+## Built With
+
+* [Babel](https://babeljs.io/docs/setup/)
+* [Mocha](https://mochajs.org/)
+* [Chai](http://chaijs.com/api/)
+* [Locus](https://www.npmjs.com/package/locus)
+* [Webpack](https://webpack.github.io/docs/)
