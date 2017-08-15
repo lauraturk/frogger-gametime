@@ -24,6 +24,7 @@ npm test
 
 ## Built With
 
+* [HTML5 Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 * [Babel](https://babeljs.io/docs/setup/)
 * [Mocha](https://mochajs.org/)
 * [Chai](http://chaijs.com/api/)
