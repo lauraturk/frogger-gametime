@@ -1,6 +1,6 @@
-# Project Title
+# Frogger-Gametime
 
-Frogger!
+The classic arcade game, Frogger, with a flash game feel.
 
 ## Getting Started
 
